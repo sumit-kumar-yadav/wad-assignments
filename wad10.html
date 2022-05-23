@@ -1,0 +1,34 @@
+
+<!-- 10. Sample code :
+Ajax communication.html -->
+
+
+<!DOCTYPE html>  
+<html>
+    <head>  
+        <title>Ajax</title>
+    </head> 
+    <body>
+        <div id="xyz">
+            <p>
+                Hello Friends <br>
+                Welcome to Pune!!!!!<br>
+            </p>
+            <button type="button" onclick="load()">Submit</button>
+        </div>
+
+        <script>
+            function load(){
+                var req=new XMLHttpRequest()
+                req.onreadystatechange=function() {
+                    if(this.readyState == 4 && this.status == 200){
+                        document.getElementById("xyz").innerHTML=this.responseText
+                    }
+                }
+                req.open('GET','https://dog.ceo/api/breeds/list/all',true)
+                req.send()
+            }
+        </script>
+
+    </body>
+</html>
